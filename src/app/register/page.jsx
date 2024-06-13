@@ -24,7 +24,7 @@ const Register = () => {
         }
 
         try {
-            const res = await fetch("http://localhost:3000/api/register", { /* Change*/
+            const res = await fetch("https://book-review-ecommerce-git-main-aswins-projects-d66043f2.vercel.app/api/register", { /* Change*/
                 headers: {
                     "Content-Type": "application/json"
                 },
