@@ -12,7 +12,7 @@ export async function POST(req) {
             mode: 'payment',
             payment_method_types: ['card'],
             success_url: 'https://book-review-ecommerce-git-main-aswins-projects-d66043f2.vercel.app/success',/* Check*/
-            cancel_url: 'https://book-review-ecommerce-git-main-aswins-projects-d66043f2.vercel.app/'
+            cancel_url: 'https://book-review-ecommerce-git-main-aswins-projects-d66043f2.vercel.app'
         })
 
         console.log(session)
