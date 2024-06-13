@@ -16,14 +16,13 @@ const ReviewModal = ({
     if (event.key === 'Escape') {
       handleHideModal()
     }
-  })
+  }, [handleHideModal])
 
   useEffect(() => {
     document.addEventListener("keydown", escapeFunction, false)
 
     return () => {
       document.removeEventListener("keydown", escapeFunction, false)
-
     }
   }, [escapeFunction])
 
@@ -47,7 +46,7 @@ const ReviewModal = ({
         userId: session?.user?._id
       }
 
-      const res = await fetch("http://localhost:3000/api/review", { /*Change*/
+      const res = await fetch("http://localhost:3000/api/review", {
         headers,
         method: "POST",
         body: JSON.stringify(body)

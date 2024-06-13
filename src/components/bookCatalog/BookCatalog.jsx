@@ -61,7 +61,7 @@ const BookCatalog = () => {
     <div className={classes.container}>
       <div className={classes.wrapper}>
         <div className={classes.titles}>
-          <h2>"Discover your desired books, click on the book to review, and make your purchase!"</h2>
+          <h2>Discover your desired books, click on the book to review, and make your purchase!</h2>
           <h5>Catalog of Our Top Rated Books</h5>
           
         </div>
