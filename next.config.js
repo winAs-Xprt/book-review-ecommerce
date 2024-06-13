@@ -21,7 +21,7 @@ const nextConfig = {
                 headers: [
                     {
                         key: "Access-Control-Allow-Origin",
-                        value: "http://localhost:3000",
+                        value: "https://book-review-ecommerce-git-main-aswins-projects-d66043f2.vercel.app",
                     },
                     // Allows for specific methods accepted
                     {
