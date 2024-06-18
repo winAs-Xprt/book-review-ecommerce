@@ -1,7 +1,7 @@
 "use client";
 import 'react-toastify/dist/ReactToastify.css';
 import classes from './details.module.css';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { BsFillCartFill } from 'react-icons/bs';
 import Image from 'next/image';
 import ReviewModal from '@/components/reviewModal/ReviewModal';
@@ -9,7 +9,6 @@ import ReviewCard from '@/components/reviewCard/ReviewCard';
 import { useDispatch } from 'react-redux';
 import { addBook } from '@/app/redux/cartSlice';
 import { toast, ToastContainer } from 'react-toastify';
-
 
 const Details = (ctx) => {
     const id = ctx.params.id;
@@ -33,50 +32,52 @@ const Details = (ctx) => {
         return 'No description available.';
     };
 
-    useEffect(() => {
-        const fetchDetails = async () => {
-            try {
-                const res = await fetch(URL);
-                const data = await res.json();
+    const fetchDetails = useCallback(async () => {
+        try {
+            const res = await fetch(URL);
+            const data = await res.json();
 
-                let pages = data.pagination ? parseInt(data.pagination.split(' ')[0], 10) : 350;
-                if (isNaN(pages)) {
-                    pages = 350; // Default page count if not available
-                }
-
-                const description = sanitizeDescription(data.description);
-
-                const details = {
-                    title: data.title,
-                    desc: description,
-                    id: data.key.split('/')[2],
-                    cover_image: data.covers
-                        ? `https://covers.openlibrary.org/b/id/${data.covers[0]}-L.jpg`
-                        : '/placeholder.jpg', // Placeholder image if no cover image is available
-                    pages
-                };
-
-                setBook(details);
-            } catch (error) {
-                console.log(error);
+            let pages = data.pagination ? parseInt(data.pagination.split(' ')[0], 10) : 350;
+            if (isNaN(pages)) {
+                pages = 350; // Default page count if not available
             }
-        };
+
+            const description = sanitizeDescription(data.description);
+
+            const details = {
+                title: data.title,
+                desc: description,
+                id: data.key.split('/')[2],
+                cover_image: data.covers
+                    ? `https://covers.openlibrary.org/b/id/${data.covers[0]}-L.jpg`
+                    : '/placeholder.jpg', // Placeholder image if no cover image is available
+                pages
+            };
+
+            setBook(details);
+        } catch (error) {
+            console.log(error);
+        }
+    }, [URL]);
+
+    const fetchReviews = useCallback(async () => {
+        try {
+            const res = await fetch(`https://book-review-ecommerce-git-main-aswins-projects-d66043f2.vercel.app/api/review?bookId=${id}`);
+            const data = await res.json();
+
+            setReviews(data);
+        } catch (error) {
+            console.log(error);
+        }
+    }, [id]);
+
+    useEffect(() => {
         fetchDetails();
-    }, [id]);
+    }, [fetchDetails]);
 
     useEffect(() => {
-        const fetchReviews = async () => {
-            try {
-                const res = await fetch(`https://book-review-ecommerce-git-main-aswins-projects-d66043f2.vercel.app/api/review?bookId=${id}`);
-                const data = await res.json();
-
-                setReviews(data);
-            } catch (error) {
-                console.log(error);
-            }
-        };
         fetchReviews();
-    }, [id]);
+    }, [fetchReviews]);
 
     const handleShowModal = () => setShowModal(true);
     const handleHideModal = () => setShowModal(false);
