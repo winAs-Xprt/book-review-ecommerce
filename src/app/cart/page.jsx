@@ -73,7 +73,7 @@ const Cart = () => {
                                             {book.quantity} x
                                         </span>
                                         <span className={classes.price}>
-                                            <span>$</span>
+                                            <span>₹</span>
                                             {book?.price}
                                         </span>
                                     </div>
