@@ -89,7 +89,7 @@ const Cart = () => {
                     </div>
                     <div className={classes.subtotalCheckoutBtns}>
                         <span className={classes.subtotal}>
-                            Subtotal: ₹{totalPrice > 100 ? totalPrice : totalPrice + 5}
+                            Subtotal: ₹{totalPrice > 100 ? totalPrice : totalPrice + 0}
                         </span>
                         <span onClick={handleCheckout} disabled={books?.length === 0} className={classes.orderNowBtn}>
                             Order
