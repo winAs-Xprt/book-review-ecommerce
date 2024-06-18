@@ -1,7 +1,6 @@
 "use client"
-
-import React from 'react'
 import classes from './cart.module.css'
+import React from 'react'
 import { AiOutlineClose } from 'react-icons/ai'
 import Link from 'next/link'
 import Image from 'next/image'
