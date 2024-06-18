@@ -1,11 +1,11 @@
-"use client"
-import React, { useState } from 'react'
-import { useRouter } from 'next/navigation'
-import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
-import { signIn } from 'next-auth/react'
-import classes from './login.module.css'
-import Link from 'next/link'
+"use client";
+import 'react-toastify/dist/ReactToastify.css'; 
+import classes from './login.module.css';       
+import React, { useState } from 'react';        
+import { useRouter } from 'next/navigation';
+import { ToastContainer, toast } from 'react-toastify';
+import { signIn } from 'next-auth/react';
+import Link from 'next/link';  
 
 const Login = () => {
   const [email, setEmail] = useState("")

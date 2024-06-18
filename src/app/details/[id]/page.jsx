@@ -10,6 +10,7 @@ import { useDispatch } from 'react-redux';
 import { addBook } from '@/app/redux/cartSlice';
 import { toast, ToastContainer } from 'react-toastify';
 
+
 const Details = (ctx) => {
     const id = ctx.params.id;
     const URL = `https://openlibrary.org/works/${id}.json`;
