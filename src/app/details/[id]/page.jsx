@@ -67,7 +67,7 @@ const Details = (ctx) => {
     useEffect(() => {
         const fetchReviews = async () => {
             try {
-                const res = await fetch(`http://localhost:3000/api/review?bookId=${id}`);
+                const res = await fetch(`https://book-review-ecommerce-git-main-aswins-projects-d66043f2.vercel.app/api/review?bookId=${id}`);
                 const data = await res.json();
 
                 setReviews(data);
