@@ -1,8 +1,8 @@
-.container{
+.container {
     position: absolute;
     top: 0;
     left: 0;
-    height: 110vh;
+    height: 100vh;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.45);
     display: flex;
@@ -11,43 +11,44 @@
     z-index: 99999999999;
 }
 
-.wrapper{
+.wrapper {
     position: relative;
-    padding: 1rem;
+    padding: 2rem;
     background-color: white;
-    height: 30vh;
-    width: 15vw;
+    height: 50vh; /* Increased height */
+    width: 50vw; /* Increased width */
     border-radius: 20px;
+    overflow-y: auto; /* Enables scrolling if content overflows */
 }
 
-.title{
+.title {
     text-align: center;
     margin-bottom: 2.5rem;
     font-size: 30px;
     color: #333;
 }
 
-.wrapper > form{
+.wrapper > form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2.5rem;
+    gap: 1rem; /* Reduced gap to fit larger modal */
 }
 
-.wrapper > form > input{
-    width: 50%;
-    padding: 0.25rem;
+.wrapper > form > input {
+    width: 70%; /* Increased width for input fields */
+    padding: 0.5rem; /* Increased padding for better readability */
     border: none;
     outline: none;
     border-bottom: 1px solid #333;
 }
 
-.wrapper > form > button{
+.wrapper > form > button {
     border: none;
     outline: none;
     margin-top: 1.25rem;
-    padding: 0.5rem 1.25rem;
+    padding: 0.75rem 1.5rem; /* Increased padding for better readability */
     background-color: var(--primary-color);
     color: white;
     font-size: 18px;
@@ -56,11 +57,11 @@
     cursor: pointer;
 }
 
-.wrapper > form > button:hover{
+.wrapper > form > button:hover {
     background-color: var(--primary-color-darker);
 }
 
-.closeIcon{
+.closeIcon {
     position: absolute;
     top: 0.5rem;
     right: 0.5rem;
