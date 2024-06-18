@@ -1,12 +1,10 @@
-import React from 'react'
-import woman_image from '../../app/assets/woman.jpg'
-import classes from './reviewCard.module.css'
-import { format } from 'timeago.js'
-import Image from 'next/image'
+import React from 'react';
+import woman_image from '../../app/assets/woman.jpg';
+import classes from './reviewCard.module.css';
+import { format } from 'timeago.js';
+import Image from 'next/image';
 
-const ReviewCard = ({
-  review
-}) => {
+const ReviewCard = ({ review }) => {
   return (
     <div className={classes.container}>
       <div className={classes.wrapper}>
@@ -14,6 +12,8 @@ const ReviewCard = ({
           <Image
             src={woman_image}
             alt=""
+            width={50}
+            height={50}
           />
           <div>
             <h3>{review?.userId?.username}</h3>
@@ -29,7 +29,7 @@ const ReviewCard = ({
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default ReviewCard
+export default ReviewCard;

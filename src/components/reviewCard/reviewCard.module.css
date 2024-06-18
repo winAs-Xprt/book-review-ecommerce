@@ -1,43 +1,41 @@
-.container{
-    width: 300px;
-    height: 225px;
+.container {
+    width: 100%;
     border: 1px solid #333;
     border-radius: 20px;
+    margin-bottom: 1rem; /* Added margin to separate multiple review cards */
 }
 
-.wrapper{
+.wrapper {
     padding: 1rem;
     display: flex;
     flex-direction: column;
 }
 
-.top{
+.top {
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
 
-.top> img{
+.top > img {
     height: 50px;
     width: 50px;
     border-radius: 50%;
     object-fit: cover;
 }
 
-.top > div > h3{
+.top > div > h3 {
     font-size: 20px;
     text-transform: capitalize;
     margin-bottom: 0.25rem;
 }
 
-.bottom{
+.bottom {
     width: 100%;
+    margin-top: 1rem; 
 }
 
-.desc{
-    margin-top: 1rem;
-    max-width: 200px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+.desc {
+    white-space: normal; 
+    word-wrap: break-word; 
 }
